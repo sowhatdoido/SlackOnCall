@@ -66,11 +66,13 @@ var handleSlackEndpoint = function (req, res) {
             break;
     }
     
+    io.sockets.emit('status', Object.keys(callList).length);
+    
     res.json(response);
 };
 
 io.on('connection', function(socket){
-   console.log('Socket Connected'); 
+   //console.log('Socket Connected'); 
 });
 
 //Routes

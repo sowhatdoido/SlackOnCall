@@ -4,7 +4,9 @@ var randomNumber = function (min, max)
 }
 
 var setCallState = function(state){
-    if(state){
+    //state returns the number of active calls
+    //can be used on frontend
+    if(state > 0){
         $('body').addClass('active-call');
     } else {
         $('body').removeClass('active-call');
@@ -29,3 +31,7 @@ var rerollBubble = function($element){
 
 $('.bubble')
     .each(rerollBubble);
+
+socket.on('status', function(status){
+    setCallState(status);
+});
