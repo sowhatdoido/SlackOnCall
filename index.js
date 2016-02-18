@@ -46,22 +46,23 @@ var handleSlackEndpoint = function (req, res) {
             for(var index in callList) { 
                 people += callList[index] + ", "; 
             }
-            if(callList.length > 0)
+            if(Object.keys(callList).length > 0)
                 response.text = "The following people are on call: " + people;
             else
                 response.text = "No one is currently on call!";
             break;
         case 'status':
-            if(callList.length > 0)
+            if(Object.keys(callList).length > 0)
                 response.text = "Call in progress! Keep quiet~";
             else
                 response.text = "No one is currently on call!";
             break;
-        case 'help':
-                response.text = "Use `on`/`off` to toggle current call status. `who` will return a list of people on call. `status` will give you a quick status update!";
-            break;
         case 'reset':
             callList = {};
+            break;
+        case 'help':
+        default:
+                response.text = "Use `on`/`off` to toggle current call status. `who` will return a list of people on call. `status` will give you a quick status update!";
             break;
     }
     
