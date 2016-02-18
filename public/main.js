@@ -23,7 +23,7 @@ var rerollBubble = function($element){
         height: bubbleSize,
         opacity: randomNumber(10, 50) * 0.01,
         'animation-delay': randomNumber(1, 5) + 's',
-        'animation-duration': randomNumber(10, 20) + 's'
+        'animation-duration': randomNumber(15, 55) + 's'
     });
 };
 

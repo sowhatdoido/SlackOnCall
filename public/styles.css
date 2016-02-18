@@ -22,6 +22,21 @@ html, body {
     transform: translateX(-50%) translateY(-50%);
 }
 
+#call-message {
+    color: #FFF;
+    
+    position: absolute;
+    left: 50%;
+    top: 100%;    
+    -webkit-transform: translateX(-50%) translateY(-0%);
+    -ms-transform: translateX(-50%) translateY(-0%);
+    -o-transform: translateX(-50%) translateY(-0%);
+    transform: translateX(-50%) translateY(-0%);
+}
+#call-message i {
+    font-size: 300px;
+}
+
 span.copy {
     position: absolute;
     bottom: 5px;
@@ -43,6 +58,10 @@ div.bubble {
     opacity: 0.4;
     top: 100%;
     
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+    
     animation-name: bubble;
     animation-duration: 10s;
     animation-delay: 1s;
@@ -61,4 +80,26 @@ div.bubble {
 
 body.active-call {
     background: tomato;
+}
+body.active-call #fresh {
+    top: 0;
+    -webkit-transform: translateX(-50%) translateY(-100%);
+    -ms-transform: translateX(-50%) translateY(-100%);
+    -o-transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
+}
+body.active-call #call-message {
+    top: 50%;
+    
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#fresh,
+#call-message {
+    -webkit-transition: all ease 500ms;
+    -o-transition: all ease 500ms;
+    transition: all ease 500ms;
 }
