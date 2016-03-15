@@ -72,7 +72,7 @@ var handleSlackEndpoint = function (req, res) {
 };
 
 io.on('connection', function(socket){
-   //console.log('Socket Connected'); 
+   socket.emit('status', Object.keys(callList).length);
 });
 
 //Routes
