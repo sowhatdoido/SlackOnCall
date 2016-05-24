@@ -37,9 +37,13 @@ var handleSlackEndpoint = function (req, res) {
             response.response_type = "in_channel";
             break;
         case 'off':
-            delete callList[req.body.user_id];
-            response.text = req.body.user_name + " is done with their call! :raised_hands:";
-            response.response_type = "in_channel";
+            if(typeof callList[req.body.user_id] == "undefined"){
+                response.text = "You weren't on a call...";
+            } else {
+                delete callList[req.body.user_id];
+                response.text = req.body.user_name + " is done with their call! :raised_hands:";
+                response.response_type = "in_channel";
+            }
             break;
         case 'who':
             var people = "";
@@ -59,6 +63,7 @@ var handleSlackEndpoint = function (req, res) {
             break;
         case 'reset':
             callList = {};
+            response.text = "Call list has been reset!";
             break;
         case 'help':
         default:
